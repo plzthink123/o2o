@@ -193,7 +193,7 @@
             AND
             s.area_id=a.area_id
             AND
-            s.shop_category_id = sc.shop_category_id
+            s .shop_category_id = sc.shop_category_id
         </where>
     </select>
 </mapper>

@@ -11,7 +11,7 @@ $(function () {
     // 编辑店铺信息的URL
     var editShopUrl = '/o2o/shopadmin/modifyshop';
     if (!isEdit) {
-        getShopInitInfo();
+        getshopinitinfo();
     } else {
         getShopInfo(shopId);
     }

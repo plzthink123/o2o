@@ -1,21 +1,20 @@
 package com.think123.o2o.service;
 
 import com.think123.o2o.Execption.ShopOperationExecption;
+import com.think123.o2o.dto.ImageHolder;
 import com.think123.o2o.dto.ShopExecution;
 import com.think123.o2o.entity.Shop;
 
-import java.io.InputStream;
-
 public interface ShopService {
     /**
-     * 添加商铺
-     * @param shop
-     * @param shopImgInputStream
-     * @param fileName
+     * 根据shopCondition分页返回相应店铺列表
+     *
+     * @param shopCondition
+     * @param pageIndex
+     * @param pageSize
      * @return
-     * @throws ShopOperationExecption
      */
-    ShopExecution addShop(Shop shop, InputStream shopImgInputStream,String fileName) throws ShopOperationExecption;
+    public ShopExecution getShopList(Shop shopCondition, int pageIndex, int pageSize);
 
     /**
      * 通过店铺Id获取店铺信息
@@ -27,22 +26,22 @@ public interface ShopService {
 
     /**
      * 更新店铺信息，包括对图片的处理
+     *
+     * @param shop
+     * @param shopImg
+     * @return
+     * @throws ShopOperationException
+     */
+    ShopExecution modifyShop(Shop shop, ImageHolder thumbnail) throws ShopOperationExecption;
+
+    /**
+     * 注册店铺信息，包括图片处理
+     *
      * @param shop
      * @param shopImgInputStream
      * @param fileName
      * @return
-     * @throws ShopOperationExecption
+     * @throws ShopOperationException
      */
-    ShopExecution modifyShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationExecption;
-    /**
-     * 根据shopCondition分页返回相应店铺列表
-     *
-     * @param shopCondition
-     * @param pageIndex
-     * @param pageSize
-     * @return
-     */
-    public ShopExecution getShopList(Shop shopCondition, int pageIndex, int pageSize);
-
-
+    ShopExecution addShop(Shop shop, ImageHolder thumbnail) throws ShopOperationExecption;
 }

@@ -2,6 +2,7 @@ package com.think123.o2o.service.impl;
 
 import com.think123.o2o.Execption.ProductCategoryOperationException;
 import com.think123.o2o.dao.ProductCategoryDao;
+import com.think123.o2o.dao.ProductDao;
 import com.think123.o2o.dto.ProductCategoryExecution;
 import com.think123.o2o.entity.ProductCategory;
 import com.think123.o2o.enums.ProductCategoryStateEnum;
@@ -18,7 +19,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 	private ProductCategoryDao productCategoryDao;
 	@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 	@Autowired
-	private ProductCategoryDao productDao;
+	private ProductDao productDao;
 
 	@Override
 	public List<ProductCategory> getProductCategoryList(long shopId) {
@@ -50,7 +51,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 	@Transactional
 	public ProductCategoryExecution deleteProductCategory(long productCategoryId, long shopId)
 			throws ProductCategoryOperationException {
-		/*// 解除tb_product里的商品与该producategoryId的关联
+		// 解除tb_product里的商品与该producategoryId的关联
 		try {
 			int effectedNum = productDao.updateProductCategoryToNull(productCategoryId);
 			if (effectedNum < 0) {
@@ -58,7 +59,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 			}
 		} catch (Exception e) {
 			throw new ProductCategoryOperationException("deleteProductCategory error: " + e.getMessage());
-		}*/
+		}
 		// 删除该productCategory
 		try {
 			int effectedNum = productCategoryDao.deleteProductCategory(productCategoryId, shopId);

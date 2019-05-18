@@ -86,7 +86,7 @@ $(function() {
 						},
 						dataType : 'json',
 						success : function(data) {
-							if (data.success) {
+							if (data.success){
 								$.toast('删除成功！');
 								getList();
 							} else {
