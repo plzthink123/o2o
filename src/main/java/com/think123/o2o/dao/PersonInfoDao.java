@@ -1,6 +1,6 @@
 package com.think123.o2o.dao;
 
-import com.imooc.o2o.entity.PersonInfo;
+import com.think123.o2o.entity.PersonInfo;
 
 public interface PersonInfoDao {
 
